@@ -22,7 +22,7 @@ const planTextEl = document.getElementById("plan-text");
 const audioContainer = document.getElementById("audio-output");
 
 const bubbleBox = document.querySelector(".bubble-box");
-const characterImg = document.querySelector(".character1");
+const characterImg = document.getElementById("character-img");
 
 const emotionSection = document.getElementById("emotion-tags-section");
 const emotionToggle = document.getElementById("emotion-tags-toggle");
@@ -629,6 +629,8 @@ async function handleGenerateMelody() {
     // 캐릭터/말풍선 초기화
     if (characterImg) {
       characterImg.src = "asset/character1.svg";
+      characterImg.classList.remove("character2");
+      characterImg.classList.add("character1");
     }
     bubbleBox.innerHTML =
       "지금 쫑알을 준비하고 있어요.<br>잠시만 기다려 주세요!";
@@ -667,6 +669,8 @@ async function handleGenerateMelody() {
         "쫑알이 완성되었어요!<br>아래에서 노래를 들어보세요 🎵";
       if (characterImg) {
         characterImg.src = "asset/character2.svg";
+        characterImg.classList.remove("character1");
+        characterImg.classList.add("character2");
       }
     } else {
       setStatus("생성 완료. 오디오 URL을 응답에서 찾지 못했습니다.");
